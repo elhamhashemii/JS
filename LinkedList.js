@@ -13,7 +13,7 @@ class LinkedList {
   getLast() {
     // returns last node
     let currentNode = this.head;
-    while (currentNode.next) {
+    while (currentNode.next) {  
       currentNode = currentNode.next;
     }
     return currentNode;
