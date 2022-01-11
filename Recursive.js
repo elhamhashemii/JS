@@ -37,7 +37,7 @@ function swap(arr, i, j) {
 function merge(arr1, arr2) {
   // let i = 0;
   // let j = 0;
-  // let mergedArr = [];
+  let mergedArr = [];
   // while (i < arr1.length && j < arr2.length) {
   //   if (arr1[i] < arr2[j]) {
   //     mergedArr.push(arr1[i]);
@@ -56,15 +56,14 @@ function merge(arr1, arr2) {
   //   }
   // }
   // return mergedArr;
-  const sortedWhileArraysAreNotCompletelyShifted = [];
   while (arr1.length && arr2.length) {
-    sortedWhileArraysAreNotCompletelyShifted.push(
-      arr1[0] < arr2[0] ? arr1.shift() : arr2.shift()
-    );
-  }
-  return [...sortedWhileArraysAreNotCompletelyShifted, ...arr1, ...arr2];
-}
 
+      mergedArr.push(
+        arr1[0] < arr2[0] ? arr1.shift() : arr2.shift()
+      );
+    }
+    return [...mergedArr, ...arr1, ...arr2];
+  }
 
 function mergeSort(mainArr) {
   if (mainArr.length == 1) return mainArr;
@@ -72,8 +71,8 @@ function mergeSort(mainArr) {
   let indexInTheMiddleOfArr = Math.round(mainArr.length / 2);
   // todo: make two new array from main arr using "indexInTheMiddleOfArr"
   let rightArr = mainArr.slice(0, indexInTheMiddleOfArr);
-  let leftArr = mainArr.slice(indexInTheMiddleOfArr, mainArr.length)
-  return merge(mergeSort(leftArr) , mergeSort(rightArr))
+  let leftArr = mainArr.slice(indexInTheMiddleOfArr, mainArr.length);
+  return merge(mergeSort(leftArr), mergeSort(rightArr));
   // todo: do it recursively to have arrays with only 1 element
   // todo: move this one element arrays and merge them together
   // let a = mergeSort(arr.slice(indexInTheMiddleOfArr));
@@ -83,12 +82,10 @@ function mergeSort(mainArr) {
   // return arr
 }
 
-let testArr = [3, 39, 10, 5, 75, 8];
+let testArr = [3, 39, 10, 1, 5, 75, 8];
 let firstArr = [3, 39, 10];
-let secondArr = [1,5, 75, 8];
+let secondArr = [1, 5, 75, 8];
 
 var span = document.createElement("span");
 span.appendChild(document.createTextNode(mergeSort(testArr)));
 document.body.appendChild(span);
-
-// fib()
