@@ -13,7 +13,7 @@ class LinkedList {
   getLast() {
     // returns last node
     let currentNode = this.head;
-    while (currentNode.next) {  
+    while (currentNode.next) {
       currentNode = currentNode.next;
     }
     return currentNode;
@@ -44,19 +44,15 @@ class LinkedList {
   }
 
   remove(index) {
-    let firstNode = this.indexOf(index - 1)
-    let removeNode = firstNode.next
-    let secondNode = removeNode.next // before deleting, its third node
-    firstNode.next = secondNode
-
-
-    // if (index == 0) {
-    //   removeNode = this.head
-    // }
-    // else {
-      
-    // }
-
+    if (index == 0) {
+      let nextNode = this.head;
+      this.head = nextNode.next;
+    } else {
+      let firstNode = this.indexOf(index - 1);
+      let removeNode = firstNode.next;
+      let secondNode = removeNode.next; // before deleting, its third node
+      firstNode.next = secondNode;
+    }
   }
 
   print() {
@@ -82,6 +78,8 @@ list.push(new Node(234));
 list.push(new Node(45645));
 const test = list.indexOf(2);
 list.insert(0, new Node(999));
-list.print();
-list.remove(2)
-list.print();
+// list.print();
+list.remove(0)
+// list.print();
+
+module.exports = { LinkedList, Node };
