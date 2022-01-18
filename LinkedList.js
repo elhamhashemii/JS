@@ -19,6 +19,12 @@ class LinkedList {
     return currentNode;
   }
 
+  findLength() {
+    let currentNode = this.head
+    let length = 0
+    // while(currentNode.next)
+  }
+
   push(newNode) {
     // todo: implement push to list
     const last = this.getLast();
@@ -35,6 +41,12 @@ class LinkedList {
     return currentNode;
   }
 
+  findIndex(node) {
+    let lengthOfList = this.getLast()
+    let currentNode = this.head;
+    return lengthOfList
+  }
+
   insert(index, newNode) {
     let firstNode = this.indexOf(index);
     let secondNode = firstNode.next;
@@ -47,6 +59,9 @@ class LinkedList {
     if (index == 0) {
       let nextNode = this.head;
       this.head = nextNode.next;
+    } else if (index == this.getLast()) {
+      let beforeLastNode = this.indexOf(index - 1);
+      beforeLastNode.next = null;
     } else {
       let firstNode = this.indexOf(index - 1);
       let removeNode = firstNode.next;
@@ -76,10 +91,13 @@ list.push(node3);
 list.push(new Node(74));
 list.push(new Node(234));
 list.push(new Node(45645));
-const test = list.indexOf(2);
-list.insert(0, new Node(999));
+// const test = list.indexOf(2);
+// list.insert(0, new Node(999));
 // list.print();
-list.remove(0)
+// list.remove(6);
+// console.log(list.indexOf(0));
 // list.print();
+// console.log(node1);
+console.log(list.findIndex(node1));
 
 module.exports = { LinkedList, Node };

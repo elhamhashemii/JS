@@ -32,10 +32,9 @@ class HashTable {
   }
 
   delete(name) {
-      const key = this.hash(name);
-      if (this.table[key].indexOf(key) == 0) {
-          // remove
-      }
+    const key = this.hash(name); // its the indexOf name's linkedList (elham's key = 9)
+    console.log(this.table); // its an array of linkedLists
+    
   }
 }
 
@@ -46,6 +45,6 @@ newTable.put("ali");
 newTable.put("vida");
 newTable.put("aynaz");
 newTable.put("navid");
-newTable.delete("vida");
+newTable.delete("elham");
 // newTable.get("ali");
 // console.log(newTable.table);
