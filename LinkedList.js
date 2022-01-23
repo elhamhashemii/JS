@@ -19,7 +19,6 @@ class LinkedList {
     return currentNode;
   }
 
-  // Not completed
   findLength() {
     let currentNode = this.head;
     let length = 0;
@@ -49,13 +48,17 @@ class LinkedList {
   // not completed
 
   findIndex(node) {
-    let lengthOfList = this.getLast();
     let currentNode = this.head;
-    for (let i = 0; i <= lengthOfList; i++) {
-      if (currentNode.value == lengthOfList.value) {
-      }
+    let index = 1;
+    if (currentNode.value == node) return 0
+    while (currentNode.next) {
+      currentNode = currentNode.next
+      if (currentNode.value == node) break
+      if (currentNode.value !== node && currentNode.next == null) return 'Entered value does not exist'
+      else index++
     }
-    return lengthOfList;
+    
+    return index
   }
 
   insert(index, newNode) {
@@ -108,6 +111,6 @@ list.insert(0, new Node(999));
 list.print();
 // console.log(node1);
 // console.log(list.findIndex(node1));
-console.log(list.findLength());
+console.log(list.findIndex(1));
 
 module.exports = { LinkedList, Node };
