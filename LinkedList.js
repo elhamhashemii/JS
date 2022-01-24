@@ -36,7 +36,6 @@ class LinkedList {
   }
 
   indexOf(index) {
-    // let value;
     let currentNode = this.head;
     for (let i = 0; i < index; i++) {
       if (currentNode.next == null) return;
@@ -45,7 +44,6 @@ class LinkedList {
     return currentNode;
   }
 
-  // not completed
 
   findIndex(node) {
     let currentNode = this.head;
@@ -79,7 +77,7 @@ class LinkedList {
     } else {
       let firstNode = this.indexOf(index - 1);
       let removeNode = firstNode.next;
-      let secondNode = removeNode.next; // before deleting, its third node
+      let secondNode = removeNode.next; // before deleting, it is third node
       firstNode.next = secondNode;
     }
   }
@@ -111,6 +109,6 @@ list.insert(0, new Node(999));
 list.print();
 // console.log(node1);
 // console.log(list.findIndex(node1));
-console.log(list.findIndex(1));
+console.log(list.findIndex(999));
 
 module.exports = { LinkedList, Node };
